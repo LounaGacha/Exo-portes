@@ -1,0 +1,82 @@
+int porteVoiture = int(random(1,4));
+boolean porteVide = false;
+boolean porteChoix = false;
+
+boolean porte1 = false;
+boolean porte2 = false;
+boolean porte3 = false;
+
+
+void setup() {
+ size(800,600); 
+}
+
+
+
+void draw() {
+  background(255);
+  
+  if(porteVoiture == 1 && porte1 == true){
+    
+  }
+  
+  if(porteChoix){
+    fill(0);
+  textSize(20);
+    text("Pour vous aider, on ouvre une porte vide. Vous pouvez conserver ou changer votre choix.", 30, 80);
+  }
+  else{
+  fill(0);
+  textSize(20);
+  text("Derrière une de ces portes se cache un cadeau. Choisissez une porte.", 110, 80);
+  }
+  
+  fill(130,185,242);
+  if(porte1) {
+    strokeWeight(4);
+  }else{
+   strokeWeight(1);
+  }
+  rect(width/4-50, 200, 100,200);
+  
+  if(porte2) {
+    strokeWeight(4);
+  }else{
+   strokeWeight(1);
+  }
+  rect(width/2-50, 200, 100,200);
+  
+  if(porte3) {
+    strokeWeight(4);
+  }else{
+   strokeWeight(1);
+  }
+   rect(width-width/4-50, 200, 100,200);
+}
+
+
+
+void mousePressed() {
+ if(mouseX >= width/4-50 && mouseX <= width/4+50 &&
+ mouseY >= 200 && mouseY <= 400){
+   porte1 = !porte1;
+   porte2 = false;
+   porte3 = false;
+   porteChoix = true;
+ }
+ if(mouseX >= width/2-50 && mouseX <= width/2+50 &&
+ mouseY >= 200 && mouseY <= 400){
+   porte2 = !porte2;
+   porte1 = false;
+   porte3 = false;
+   porteChoix = true;
+ }
+ if(mouseX >= width-width/4-50 && mouseX <= width-width/4+50 &&
+ mouseY >= 200 && mouseY <= 400){
+   porte3 = !porte3;
+   porte1 = false;
+   porte2 = false;
+   porteChoix = true;
+ }
+}
+
